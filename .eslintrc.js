@@ -6,6 +6,11 @@ module.exports = {
         "ecmaVersion": 6,
         "sourceType": "module"
     },
+    "preLoaders": [{
+        "test": /\.(js|vue)$/,
+        "loader": 'eslint-loader',
+        "exclude": /node_modules/
+    }],
     "env": {
         "browser": true,
         "node": true
