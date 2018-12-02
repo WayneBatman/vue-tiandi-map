@@ -90,8 +90,107 @@
             },
             showSearchResult (res) {
                 console.log(res);
-                /*if (!res) return;
-                if (res.zr.length) this.showSearchList = true;*/
+                if(!res){
+                    return;
+                }
+
+                const {resultType,count,pois,area} = res;
+
+                if (count>0){
+                    const {getresultPois,getresultArea} = this;
+                    //根据返回类型解析搜索结果
+                    switch (parseInt(resultType)) {
+                        case 1:
+                            //解析点数据结果
+                            getresultPois(pois);
+                            break;
+                        case 3:
+                            //解析行政区划边界
+                            getresultArea(area);
+                            break;
+                    }
+
+                }
+            },
+            getresultPois (pois) {
+                if(pois){
+                    const {map,TMap,getCurrentCenterAndZoom} = this;
+                    //坐标数组，设置最佳比例尺时会用到
+                    let zoomArr = [];
+                    pois.map(poi =>{
+                        const {name,address,lonlat} = poi;
+                        let lngLatArr = lonlat.split(" ");
+                        let lngLat = new TMap.LngLat(lngLatArr[0], lngLatArr[1]);
+                        let winHtml = "名称:" + name + "<br/>地址:" + address;
+                        //创建标注对象
+                        let marker = new TMap.Marker(lngLat);
+                        //地图上添加标注点
+                        map.addOverLay(marker);
+                        //注册标注点的点击事件
+                        let markerInfoWin = new TMap.InfoWindow(winHtml, {autoPan: true});
+                        marker.addEventListener("click", function () {
+                            marker.openInfoWindow(markerInfoWin);
+                        });
+
+                        zoomArr.push(lngLat);
+                    });
+
+                    map.setViewport(zoomArr);
+                    getCurrentCenterAndZoom(map);
+
+                }
+            },
+            getresultArea (objs) {
+                if(objs) {
+                    const {map,TMap,getCurrentCenterAndZoom} = this;
+                    const {points,lonlat} = objs;
+                    if(points){
+                        //坐标数组，设置最佳比例尺时会用到
+                        let pointsArr = [];
+                        points.map(point =>{
+                            let regionLngLats = [];
+                            const { region } = point;
+                            let regionArr = region.split(",");
+                            regionArr.map(regionTemp => {
+                                let lnglatArr = regionTemp.split(" ");
+                                let lnglat = new TMap.LngLat(lnglatArr[0], lnglatArr[1]);
+                                regionLngLats.push(lnglat);
+                                pointsArr.push(lnglat);
+                            });
+
+                            //创建线对象
+                            let line = new TMap.Polyline(regionLngLats, {
+                                color: "blue",
+                                weight: 3,
+                                opacity: 1,
+                                lineStyle: "dashed"
+                            });
+
+                            map.addOverLay(line);
+                        });
+
+                        map.setViewport(pointsArr);
+                    }
+
+                    if(lonlat){
+                        var regionArr = lonlat.split(",");
+                        this.map.panTo(new TMap.LngLat(regionArr[0], regionArr[1]));
+                    }
+
+                    getCurrentCenterAndZoom(map);
+                }
+            },
+            getCurrentCenterAndZoom(map){
+                let currentZoom = map.getZoom();
+                let currentCenter = map.getCenter();
+                let currentCenterStr = currentCenter.lat+','+currentCenter.lng;
+
+                let mapParams = {
+                    currentZoom :currentZoom,
+                    currentCenter: currentCenterStr
+                };
+
+                this.$emit("on-searchReturnValue",mapParams);
             },
             syncCenterAndZoom (e){
                 if(this.showMapType){
@@ -103,7 +202,7 @@
                 }
             },
             clickMap (e) {
-                console.log(e);
+                //console.log(e);
                 /*if(this.addStatus){
                     this.$emit('on-clickMap', e.lnglat);
                 }
