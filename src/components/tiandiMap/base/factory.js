@@ -1,11 +1,16 @@
 export function createLngLat (T, options = {}) {
-  const {lng, lat} = options
-  return new T.LngLat(lng, lat)
+  const {lng, lat} = options;
+  return new T.LngLat(lng, lat);
 }
 
 export function createPoint (T, options = {}) {
-    const {x, y} = options
-    return new T.Point(x, y)
+    const {x, y} = options;
+    return new T.Point(x, y);
+}
+
+export function createLngLatBounds (T, options = {}) {
+  const {sw, ne} = options;
+  return new T.LngLatBounds(createLngLat(T, sw), createLngLat(T, ne));
 }
 
 // export function createPixel (T, options = {}) {
@@ -13,10 +18,7 @@ export function createPoint (T, options = {}) {
 //   return new T.Pixel(x, y)
 // }
 //
-// export function createBounds (T, options = {}) {
-//   const {sw, ne} = options
-//   return new T.Bounds(createLngLat(T, sw), createLngLat(T, ne))
-// }
+
 
 // export function createSize (T, options = {}) {
 //   const {width, height} = options

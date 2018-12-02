@@ -21,6 +21,7 @@
                     </Select>
                     </Input>
                 </tm-control>
+                <tm-local-search :keyword="searchMapKeyword" :panel="false" @searchcomplete="showSearchResult" ></tm-local-search>
                 <tm-zoom :position="`T_ANCHOR_BOTTOM_RIGHT`"></tm-zoom>
             </tiandi-map>
         </div>
@@ -77,14 +78,20 @@
                 addOffset: {},
                 mapCenter: {},// 中心点
                 searchValue: '',
+                // 搜索关键词
+                searchMapKeyword: '',
                 select:'map'
             }
         },
         methods:{
             search(){
                 this.map.clearOverLays();
-                console.log(this.searchValue);
-                //this.searchObject.search(this.searchValue);
+                this.searchMapKeyword = this.searchValue;
+            },
+            showSearchResult (res) {
+                console.log(res);
+                /*if (!res) return;
+                if (res.zr.length) this.showSearchList = true;*/
             },
             syncCenterAndZoom (e){
                 if(this.showMapType){
