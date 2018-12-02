@@ -36,6 +36,7 @@ dist
 dist/*
 src/config/*.tmp
 src/config/env.js
+package-lock.json
 
 # Editor directories and files
 .idea
