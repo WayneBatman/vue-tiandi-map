@@ -32,9 +32,15 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 /dist
+dist
+dist/*
+src/config/*.tmp
+src/config/env.js
 
 # Editor directories and files
 .idea
+.idea/
+.DS_Store
 .vscode
 *.suo
 *.ntvs*
@@ -45,6 +51,8 @@ build/Release
 
 # Dependency directories
 node_modules/
+.project
+
 jspm_packages/
 
 
