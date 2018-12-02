@@ -1,21 +1,19 @@
 # vue-tiandi-map
-ÕâÊÇÀûÓÃVUE·â×°µÄÌìµØÍ¼µÄ×é¼ş
+è¿™æ˜¯åˆ©ç”¨iviewå°è£…çš„å¤©åœ°å›¾çš„ç»„ä»¶
 
-# ²Î¿¼ÎÄµµ¼°Ô´Âë
-##  1,VUE/CLI
-https://cli.vuejs.org/guide/
-##  2,VUE¹ÙÍø
+# å‚è€ƒæ–‡æ¡£åŠæºç 
+##  1,iviewå®˜ç½‘
+https://www.iviewui.com/docs/guide/install
+##  2,VUEå®˜ç½‘
 https://cn.vuejs.org/
-##  3,vue-baidu-mapµÄgithubµØÖ·
-+ Ô´ÂëµØÖ·¡ª¡ªhttps://github.com/Dafrok/vue-baidu-map#readme
-+ apiÎÄµµµØÖ·¡ª¡ªhttps://dafrok.github.io/vue-baidu-map/#/zh/index
-##  4,ÌìµØÍ¼API
-µ±Ç°°æ±¾Ê¹ÓÃµÄÊÇ4.0°æ±¾µÄjs
+##  3,vue-baidu-mapçš„githubåœ°å€
++ æºç åœ°å€â€”â€”https://github.com/Dafrok/vue-baidu-map#readme
++ apiæ–‡æ¡£åœ°å€â€”â€”https://dafrok.github.io/vue-baidu-map/#/zh/index
+##  4,å¤©åœ°å›¾API
+å½“å‰ç‰ˆæœ¬ä½¿ç”¨çš„æ˜¯4.0ç‰ˆæœ¬çš„js
 http://lbs.tianditu.gov.cn/api/js4.0/guide.html
-# ÔËĞĞ²½Öè
-1. ÏÂÔØ±ØÒªµÄÒÀÀµ
+# è¿è¡Œæ­¥éª¤
+1. ä¸‹è½½å¿…è¦çš„ä¾èµ–
 npm install
-2. Æô¶¯ÏîÄ¿
-npm run serve
-# **×¢Òâ**
-1.  Èç¹û³öÏÖ¸÷ÖÖESLintÎÊÌâ£¬¿ÉÒÔĞŞ¸Ä¡£eslintrc.jsÎÄ¼ş½øĞĞ¹æÔòµÄ×Ô¶¨Òå¡£
+2. å¯åŠ¨é¡¹ç›®
+npm run dev
