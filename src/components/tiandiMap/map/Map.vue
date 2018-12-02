@@ -169,6 +169,7 @@ export default {
             const {setMapOptions, zoom, getCenterPoint} = this;
             setMapOptions();
             bindEvents.call(this, map);
+            map.checkResize();
             map.centerAndZoom(getCenterPoint(), zoom);
             this.$emit('ready', {T, map})
         },

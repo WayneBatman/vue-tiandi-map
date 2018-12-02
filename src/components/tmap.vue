@@ -13,6 +13,14 @@
                     @zoomend="syncCenterAndZoom"
                     @click="clickMap"
                     @ready="mapReady">
+                <tm-control v-if="showSearch" :offset="searchOffset" style="width: 300px;margin-top: 10px;margin-left: 20px;">
+                    <Input placeholder="输入关键词搜索" icon="ios-search" v-model="searchValue" @on-click="search">
+                    <Select v-model="select" slot="prepend" style="width: 80px">
+                        <!--<Option value="parcel">地块</Option>-->
+                        <Option value="map">地图</Option>
+                    </Select>
+                    </Input>
+                </tm-control>
             </tiandi-map>
         </div>
     </div>
@@ -63,6 +71,7 @@
                 TMap: {},
                 // 初始化实例
                 map: {},
+                searchOffset:{},
                 // 右边控件offset
                 addOffset: {},
                 mapCenter: {},// 中心点
@@ -103,6 +112,7 @@
             mapReady (item){
                 this.TMap = item.T;
                 this.map = item.map;
+                this.searchOffset = {x:5,y:5};
                 this.addOffset = {x: 30, y: 5};
             }
         }
