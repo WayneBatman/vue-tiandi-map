@@ -26,28 +26,47 @@
 </style>
 <template>
     <div class="index">
-        <Row type="flex" justify="center" align="middle">
-            <Col span="24">
-                <h1>
-                    <img src="../images/logo.png">
-                </h1>
-                <h2>
-                    <p>Welcome to your iView app!</p>
-                    <Button @click="handleStart">Start iView</Button>
-                </h2>
-            </Col>
-        </Row>
+        <TMap :areaHeight="areaHeight" :zoom="zoom" :center="mapCenter"></TMap>
     </div>
 </template>
 <script>
+    import TMap from "../components/tmap";
     export default {
-        methods: {
-            handleStart () {
-                this.$Modal.info({
-                    title: 'Bravo',
-                    content: 'Now, enjoy the convenience of iView.'
-                });
+        components: {TMap},
+        props: {
+            msg: String
+        },
+        created(){
+            this.areaHeight = document.documentElement.clientHeight - 150;
+        },
+        data(){
+            return {
+                wheelZoom:true,
+                areaHeight:0,
+                zoom:12,
+                mapCenter:{
+                    lng:113.263330,
+                    lat:22.926400
+                }
             }
         }
     }
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+    h3 {
+        margin: 40px 0 0;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    a {
+        color: #42b983;
+    }
+</style>
