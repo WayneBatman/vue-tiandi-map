@@ -21,6 +21,7 @@
                     </Select>
                     </Input>
                 </tm-control>
+                <tm-zoom :position="`T_ANCHOR_BOTTOM_RIGHT`"></tm-zoom>
             </tiandi-map>
         </div>
     </div>
