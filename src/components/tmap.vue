@@ -21,6 +21,7 @@
                     </Select>
                     </Input>
                 </tm-control>
+                <tm-polygon :path="polygonPath" :editing="true"></tm-polygon>
                 <tm-local-search :keyword="searchMapKeyword" :panel="false" @searchcomplete="showSearchResult" ></tm-local-search>
                 <tm-zoom :position="`T_ANCHOR_BOTTOM_RIGHT`"></tm-zoom>
             </tiandi-map>
@@ -80,7 +81,13 @@
                 searchValue: '',
                 // 搜索关键词
                 searchMapKeyword: '',
-                select:'map'
+                select:'map',
+                polygonPath: [//用于记录当前地块的形状
+                    {lng:113.2574,lat:22.99652},
+                    {lng:113.26229,lat:22.9883},
+                    {lng:113.25555,lat:22.98965},
+                    {lng:113.25555,lat:22.98965}
+                ],
             }
         },
         methods:{

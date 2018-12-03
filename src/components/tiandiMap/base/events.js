@@ -69,8 +69,7 @@ export default {
     'mouseup',
     'mouseout',
     'mouseover',
-    'remove',
-    'lineupdate'
+    'remove'
   ],
   'tm-circle': [
     'click',
