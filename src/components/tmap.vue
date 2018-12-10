@@ -22,6 +22,7 @@
                     </Input>
                 </tm-control>
                 <tm-polygon :path="polygonPath" :editing="true"></tm-polygon>
+                <tm-marker :lngLat="markerItem" :title="`广州南站`"></tm-marker>
                 <tm-local-search :keyword="searchMapKeyword" :panel="false" @searchcomplete="showSearchResult" ></tm-local-search>
                 <tm-zoom :position="`T_ANCHOR_BOTTOM_RIGHT`"></tm-zoom>
             </tiandi-map>
@@ -88,6 +89,10 @@
                     {lng:113.25555,lat:22.98965},
                     {lng:113.25555,lat:22.98965}
                 ],
+                markerItem : {
+                    lng:113.2574,
+                    lat:22.99652
+                }
             }
         },
         methods:{

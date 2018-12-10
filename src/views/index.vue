@@ -45,8 +45,8 @@
                 areaHeight:0,
                 zoom:12,
                 mapCenter:{
-                    lng:113.263330,
-                    lat:22.926400
+                    lng:113.2574,
+                    lat:22.99652
                 }
             }
         }

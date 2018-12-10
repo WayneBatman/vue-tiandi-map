@@ -37,21 +37,18 @@ export default {
     'viewchanged',
     'viewchanging'
   ],
-  'tm-marker': [
-    'click',
-    'dblclick',
-    'mousedown',
-    'mouseup',
-    'mouseout',
-    'mouseover',
-    'remove',
-    'infowindowclose',
-    'infowindowopen',
-    'dragstart',
-    'dragging',
-    'dragend',
-    'rightclick'
-  ],
+    'tm-marker': [
+        'click',
+        'dblclick',
+        'mousedown',
+        'mouseup',
+        'mouseout',
+        'mouseover',
+        'dragstart',
+        'drag',
+        'dragend',
+        'remove'
+    ],
   'tm-polyline': [
     'click',
     'dblclick',
@@ -62,15 +59,15 @@ export default {
     'remove',
     'lineupdate'
   ],
-  'tm-polygon': [
-    'click',
-    'dblclick',
-    'mousedown',
-    'mouseup',
-    'mouseout',
-    'mouseover',
-    'remove'
-  ],
+    'tm-polygon': [
+        'click',
+        'dblclick',
+        'mousedown',
+        'mouseup',
+        'mouseout',
+        'mouseover',
+        'remove'
+    ],
   'tm-circle': [
     'click',
     'dblclick',

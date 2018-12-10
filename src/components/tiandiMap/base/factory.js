@@ -19,22 +19,19 @@ export function createLngLatBounds (T, options = {}) {
 // }
 //
 
+export function createSize (T, options = {}) {
+  const {x, y} = options;
+  return new T.Point(x, y)
+}
 
-// export function createSize (T, options = {}) {
-//   const {width, height} = options
-//   return new T.Size(width, height)
-// }
-
-// export function createIcon (T, options = {}) {
-//   const {url, size, opts = {}} = options
-//   return new T.Icon(url, createSize(T, size), {
-//     anchor: opts.anchor && createSize(T, opts.anchor),
-//     imageSize: opts.imageSize && createSize(T, opts.imageSize),
-//     imageOffset: opts.imageOffset && createSize(T, opts.imageOffset),
-//     infoWindowAnchor: opts.infoWindowAnchor && createSize(T, opts.infoWindowAnchor),
-//     printImageUrl: opts.printImageUrl
-//   })
-// }
+export function createIcon (T, options = {}) {
+  const {url, size, anchor} = options;
+  return new T.Icon({
+      iconUrl:url,
+      iconSize:(size && createSize(T,size)) || createPoint(T,{x:25,y:41}),
+      iconAnchor:(anchor && createSize(T,anchor)) || createPoint(T,{x:12,y:41})
+  })
+}
 
 export function createLabel (T, options = {}) {
   const {content, opts} = options
